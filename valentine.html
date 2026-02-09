@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Valentine?</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: pink;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+  }
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+  }
+  img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+  h1 {
+    color: #e63946;
+    margin-bottom: 20px;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  #yesBtn {
+    background: #e63946;
+    color: white;
+  }
+  #noBtn {
+    background: #ccc;
+    color: black;
+  }
+  .quote {
+    display: none;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #d6336c;
+  }
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" alt="Couple">
+  <h1>Will you be my Valentine? 💜</h1>
+  <div class="buttons">
+    <button id="yesBtn">Yes 💜</button>
+    <button id="noBtn">No 🤷</button>
+  </div>
+  <div class="quote" id="quote">“Every moment is sweeter when shared with you 💗”</div>
+</div>
+
+<!-- Background music (Pixabay direct MP3 link) -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3b2f9f2f2f.mp3?filename=romantic-background-110997.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+  const quote = document.getElementById("quote");
+  const music = document.getElementById("bgMusic");
+
+  yesBtn.addEventListener("click", () => {
+    document.querySelector("h1").textContent = "Yayyy! 💘";
+    document.querySelector(".buttons").style.display = "none";
+    quote.style.display = "block";
+    music.play(); // start music after click
+  });
+
+  function moveNoButton() {
+    const container = document.getElementById("card");
+    const maxX = container.clientWidth - noBtn.offsetWidth;
+    const maxY = container.clientHeight - noBtn.offsetHeight;
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+    noBtn.style.position = "absolute";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+  }
+
+  noBtn.addEventListener("mouseover", moveNoButton);
+  noBtn.addEventListener("touchstart", moveNoButton);
+</script>
+
+</body>
+</html>
