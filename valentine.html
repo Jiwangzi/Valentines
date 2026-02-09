@@ -17,7 +17,7 @@
   }
   .card {
     background: white;
-    padding: 20px;
+    padding: 80px;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     max-width: 400px;
@@ -72,7 +72,7 @@
     <button id="yesBtn">Yes 💜</button>
     <button id="noBtn">No 🤷</button>
   </div>
-  <div class="quote" id="quote">“Every moment is sweeter when shared with you 💗”</div>
+  <div class="quote" id="quote">“You can't press NO anyways hehe 💗”</div>
 </div>
 
 <!-- Background music hosted on GitHub Pages -->
@@ -86,12 +86,17 @@
   const noBtn = document.getElementById("noBtn");
   const quote = document.getElementById("quote");
   const music = document.getElementById("bgMusic");
+  const img = document.querySelector("img"); // get the image element
 
   yesBtn.addEventListener("click", () => {
     document.querySelector("h1").textContent = "Yayyy! 💘";
     document.querySelector(".buttons").style.display = "none";
     quote.style.display = "block";
     music.play(); // start music after click
+
+    // change the image
+    img.src = "https://jiwangzi.github.io/Valentines/Yes.jpeg";
+    img.alt = "Yes";
   });
 
   function moveNoButton() {
@@ -109,6 +114,6 @@
   noBtn.addEventListener("touchstart", moveNoButton);
 </script>
 
+
 </body>
 </html>
-
